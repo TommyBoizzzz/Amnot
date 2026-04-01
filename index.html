@@ -4,18 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amnot អំណត់ - Creative Digital Agency</title>
-    <!-- Favicon / Logo in Browser Tab -->
     <link rel="icon" href="./images/icon2.png" type="image/png">
-    <!-- Optional: Different sizes for better display -->
     <link rel="apple-touch-icon" href="./images/icon2.png">
 
-    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
             --primary: #0066ff;
-            --dark: #222;
+            --dark: #1e2937;
         }
 
         * {
@@ -29,6 +26,7 @@
             background: #ffffff;
             color: #333;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         /* ==================== HEADER ==================== */
@@ -36,17 +34,18 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(12px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-            padding: 15px 0;
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.07);
+            padding: 14px 0;
             z-index: 1000;
+            transition: all 0.4s ease;
         }
 
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 25px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -56,70 +55,68 @@
             display: flex;
             align-items: center;
             font-weight: 700;
-            font-size: 1.75rem;
+            font-size: 1.65rem;
             color: var(--dark);
             text-decoration: none;
         }
 
-        .navbar-brand:hover {
-            color: var(--primary);
-        }
-
         .logo-img {
-            width: 52px;
-            height: 52px;
-            margin-right: 14px;
+            width: 50px;          
+            height: 50px;
+            margin-right: 12px;
             border-radius: 10px;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 10px rgba(0, 102, 255, 0.15);
+            box-shadow: 0 6px 15px rgba(0, 102, 255, 0.18);
+            transition: all 0.4s ease;
         }
 
         .logo-img img {
-            width: 30px;
+            width: 30;
             height: 30px;
             object-fit: contain;
+        }
+
+        .logo-img:hover {
+            transform: rotate(8deg) scale(1.1);
         }
 
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 10px;
-            align-items: center;
+            gap: 8px;
         }
 
         .nav-link {
-            color: #444;
+            color: #475569;
             text-decoration: none;
             font-weight: 500;
-            padding: 8px 16px;
-            transition: all 0.3s;
+            padding: 10px 18px;
+            position: relative;
+            transition: all 0.3s ease;
         }
 
-        .nav-link:hover,
-        .nav-link.active {
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 18px;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.4s ease;
+        }
+
+        .nav-link:hover::after {
+            width: calc(100% - 36px);
+        }
+
+        .nav-link:hover {
             color: var(--primary);
         }
 
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 10px 28px;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .btn-primary:hover {
-            background: #0052cc;
-            transform: translateY(-2px);
-        }
-
-        /* Hamburger Menu */
         .hamburger {
             display: none;
             font-size: 1.8rem;
@@ -129,80 +126,176 @@
             color: #333;
         }
 
-        /* ==================== HERO ==================== */
+        /* ==================== HERO - Full Screen ==================== */
         .hero {
-            background: linear-gradient(135deg, #f8fbff 0%, #f0f4ff 100%);
-            padding: 200px 20px 140px;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f0f7ff 0%, #e0ecff 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            margin-top: 85px;
+            padding: 0 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0,102,255,0.07) 0%, transparent 70%);
+            animation: heroPulse 30s infinite linear;
+        }
+
+        @keyframes heroPulse {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            max-width: 900px;
+            z-index: 2;
         }
 
         .hero h1 {
-            font-size: 3.2rem;
+            font-size: 3.4rem;
             font-weight: 700;
             line-height: 1.2;
             margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeUp 1s forwards 0.3s;
         }
 
         .hero p {
             font-size: 1.25rem;
-            color: #666;
-            max-width: 720px;
-            margin: 0 auto 40px;
+            color: #64748b;
+            max-width: 680px;
+            margin: 0 auto 45px;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeUp 1s forwards 0.6s;
+        }
+
+        .hero-buttons {
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeUp 1s forwards 0.9s;
+        }
+
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #0066ff, #3388ff);
+            color: white;
+            border: none;
+            padding: 14px 36px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin: 0 10px 10px 0;
+            box-shadow: 0 8px 25px rgba(0, 102, 255, 0.25);
+            transition: all 0.4s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(0, 102, 255, 0.35);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2.5px solid var(--primary);
+            padding: 14px 36px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
         }
 
         /* ==================== TEAM SECTION ==================== */
         .team-section {
-            padding: 100px 20px;
+            padding: 120px 20px;
             background: #ffffff;
         }
 
         .section-title {
-            font-size: 2.8rem;
+            font-size: 3rem;
             font-weight: 700;
             text-align: center;
-            margin-bottom: 15px;
+            margin-bottom: 16px;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeUp 1s forwards;
         }
 
         .section-subtitle {
             text-align: center;
-            color: #666;
-            font-size: 1.1rem;
-            margin-bottom: 60px;
+            color: #64748b;
+            font-size: 1.15rem;
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeUp 1s forwards 0.2s;
         }
 
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+            max-width: 1300px;
             margin: 0 auto;
         }
 
         .team-card {
             background: white;
-            border-radius: 20px;
+            border-radius: 24px;
             overflow: hidden;
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.07);
-            transition: all 0.4s ease;
-            border: 1px solid #f0f0f0;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid #f1f5f9;
             text-align: center;
-            padding-bottom: 20px;
+            padding-bottom: 30px;
+            opacity: 0;
+            transform: translateY(60px);
+        }
+
+        .team-card.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .team-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 20px 45px rgba(0, 102, 255, 0.12);
+            transform: translateY(-20px) scale(1.03);
+            box-shadow: 0 30px 70px rgba(0, 102, 255, 0.18);
         }
 
         .team-img {
-            width: 145px;
-            height: 145px;
-            margin: 30px auto 20px;
+            width: 160px;
+            height: 160px;
+            margin: 35px auto 25px;
             border-radius: 50%;
             overflow: hidden;
-            border: 5px solid #fff;
-            box-shadow: 0 8px 25px rgba(0, 102, 255, 0.15);
+            border: 6px solid #fff;
+            box-shadow: 0 15px 35px rgba(0, 102, 255, 0.22);
+            transition: all 0.6s ease;
+        }
+
+        .team-card:hover .team-img {
+            transform: scale(1.08) rotate(5deg);
         }
 
         .team-img img {
@@ -211,83 +304,62 @@
             object-fit: cover;
         }
 
-        .team-name {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .team-role {
-            color: var(--primary);
-            font-weight: 500;
-        }
-
         /* ==================== FOOTER ==================== */
         .footer {
             background: #0f172a;
             color: #cbd5e1;
-            padding: 80px 20px 40px;
+            padding: 100px 20px 50px;
+            scroll-margin-top: 90px;
         }
 
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 50px;
         }
 
-        .footer h3 {
+        .footer h3, .footer h5 {
             color: white;
-            margin-bottom: 20px;
-        }
-
-        .footer h5 {
-            color: white;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-
-        .footer ul {
-            list-style: none;
+            margin-bottom: 24px;
         }
 
         .footer a {
             color: #94a3b8;
             text-decoration: none;
             display: block;
-            margin-bottom: 10px;
-            transition: color 0.3s;
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
         }
 
         .footer a:hover {
-            color: var(--primary);
+            color: #60a5fa;
+            padding-left: 8px;
         }
 
         .footer-bottom {
             text-align: center;
-            margin-top: 60px;
-            padding-top: 30px;
+            margin-top: 80px;
+            padding-top: 40px;
             border-top: 1px solid #334155;
             color: #64748b;
         }
 
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 992px) {
             .nav-menu {
                 position: fixed;
-                top: 85px;
+                top: 80px;
                 left: -100%;
                 width: 100%;
-                height: calc(100vh - 85px);
+                height: calc(100vh - 80px);
                 background: white;
                 flex-direction: column;
-                align-items: center;
-                justify-content: flex-start;
-                padding-top: 50px;
-                transition: left 0.4s ease;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-                gap: 20px;
+                padding-top: 60px;
+                gap: 25px;
+                transition: left 0.5s ease;
+                box-shadow: 0 20px 40px rgba(0,0,0,0.15);
             }
 
             .nav-menu.active {
@@ -299,19 +371,19 @@
             }
 
             .hero h1 {
-                font-size: 2.6rem;
+                font-size: 2.7rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- ==================== HEADER WITH LOGO ==================== -->
+    <!-- HEADER -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="#" class="navbar-brand">
                 <div class="logo-img">
-                    <img src="./images/logo.png" alt="Amnot អំណត់ Logo">
+                    <img src="./images/logo.png" alt="Amnot Logo">
                 </div>
                 អំណត់ - Amnot
             </a>
@@ -320,92 +392,67 @@
                 <li><a href="#" class="nav-link">Home</a></li>
                 <li><a href="#" class="nav-link">About</a></li>
                 <li><a href="#" class="nav-link">Services</a></li>
-                <li><a href="#" class="nav-link active">Team</a></li>
-                <li><a href="#" class="nav-link">Portfolio</a></li>
-                <li><a href="#" class="nav-link">Contact</a></li>
-                <li>
-                    <button class="btn-primary">Get In Touch</button>
-                </li>
+                <li><a href="#" class="nav-link" id="contactLink">Contact</a></li>
             </ul>
 
             <button class="hamburger" id="hamburger">☰</button>
         </div>
     </nav>
 
-    <!-- ==================== HERO SECTION ==================== -->
+    <!-- HERO -->
     <section class="hero">
-        <div style="max-width: 1100px; margin: 0 auto;">
+        <div class="hero-content">
             <h1>Welcome to <span style="color: var(--primary);">Amnot អំណត់</span></h1>
-            <p>We are a creative team dedicated to building beautiful and effective digital solutions.</p>
-            <div>
-                <button class="btn-primary" style="font-size: 1.1rem; padding: 14px 36px; margin-right: 15px;">Our Services</button>
-                <button onclick="alert('Portfolio coming soon!')" 
-                        style="background: transparent; color: var(--primary); border: 2px solid var(--primary); padding: 14px 36px; border-radius: 50px; font-weight: 600; cursor: pointer;">
-                    View Our Work
+            <p>We craft beautiful, meaningful digital experiences that inspire and connect.</p>
+            
+            <div class="hero-buttons">
+                <button class="btn-primary">Our Services</button>
+                <button class="btn-outline" onclick="document.getElementById('footer').scrollIntoView({ behavior: 'smooth' });">
+                    Contact Us
                 </button>
             </div>
         </div>
     </section>
 
-    <!-- ==================== TEAM SECTION ==================== -->
+    <!-- TEAM SECTION -->
     <section class="team-section">
-        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-            <h2 class="section-title">Meet Our Team</h2>
-            <p class="section-subtitle">The passionate people behind Amnot</p>
+        <div style="max-width: 1300px; margin: 0 auto; padding: 0 20px;">
+            <h2 class="section-title">Meet Our Creative Team</h2>
+            <p class="section-subtitle">Passionate minds turning ideas into digital reality</p>
 
             <div class="team-grid">
                 <div class="team-card">
-                    <div class="team-img">
-                        <img src="./images/member/sela.png" alt="H.CHANSELA">
-                    </div>
+                    <div class="team-img"><img src="./images/member/sela.png" alt="Heng Chansela"></div>
                     <h5 class="team-name">Heng Chansela</h5>
                     <p class="team-role">Founder & Creative Director</p>
                 </div>
-
                 <div class="team-card">
-                    <div class="team-img">
-                        <img src="./images/member/nha.png" alt="M.PUTHIPANHA">
-                    </div>
+                    <div class="team-img"><img src="./images/member/nha.png" alt="Manh Puthipanha"></div>
                     <h5 class="team-name">Manh Puthipanha</h5>
                     <p class="team-role">Dev Ops</p>
                 </div>
-
                 <div class="team-card">
-                    <div class="team-img">
-                        <img src="./images/member/seth.png" alt="R.KEOVISETH">
-                    </div>
+                    <div class="team-img"><img src="./images/member/seth.png" alt="Rith Keoviseth"></div>
                     <h5 class="team-name">Rith Keoviseth</h5>
                     <p class="team-role">Project Manager</p>
-                </div> 
-
+                </div>
                 <div class="team-card">
-                    <div class="team-img">
-                        <img src="./images/member/niza.png" alt="S.PHEAKNIZA">
-                    </div>
+                    <div class="team-img"><img src="./images/member/niza.png" alt="Sopheak Niza"></div>
                     <h5 class="team-name">Sopheak Niza</h5>
                     <p class="team-role">Web Developer</p>
                 </div>
-
                 <div class="team-card">
-                    <div class="team-img">
-                        <img src="./images/member/sal.png" alt="T.SUVISAL">
-                    </div>
+                    <div class="team-img"><img src="./images/member/sal.png" alt="Touch Suvisal"></div>
                     <h5 class="team-name">Touch Suvisal</h5>
                     <p class="team-role">Mobile Developer</p>
                 </div>
-
                 <div class="team-card">
-                    <div class="team-img">
-                        <img src="./images/member/reach.png" alt="V.YUTHREACH">
-                    </div>
+                    <div class="team-img"><img src="./images/member/reach.png" alt="Vang Yuthreach"></div>
                     <h5 class="team-name">Vang Yuthreach</h5>
                     <p class="team-role">Mobile Developer</p>
                 </div>
-               
                 <div class="team-card">
-                    <div class="team-img">
-                        <img src="./images/member/naro.png" alt="Y.SOKNARO">
-                    </div>
+                    <div class="team-img"><img src="./images/member/naro.png" alt="Yous Soknaro"></div>
                     <h5 class="team-name">Yous Soknaro</h5>
                     <p class="team-role">UI/UX Designer</p>
                 </div>
@@ -413,8 +460,8 @@
         </div>
     </section>
 
-    <!-- ==================== FOOTER ==================== -->
-    <footer class="footer">
+    <!-- FOOTER -->
+    <footer class="footer" id="footer">
         <div class="footer-content">
             <div>
                 <h3>អំណត់ - Amnot</h3>
@@ -450,21 +497,15 @@
     </footer>
 
     <script>
-        // Mobile Menu Toggle
+        // Mobile Menu
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('navMenu');
 
         hamburger.addEventListener('click', () => {
             navMenu.classList.toggle('active');
-            
-            if (navMenu.classList.contains('active')) {
-                hamburger.textContent = '✕';
-            } else {
-                hamburger.textContent = '☰';
-            }
+            hamburger.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
         });
 
-        // Close mobile menu when clicking a nav link
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
@@ -472,11 +513,36 @@
             });
         });
 
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
-                navMenu.classList.remove('active');
-                hamburger.textContent = '☰';
+        // Smooth Scroll to Footer
+        document.getElementById('contactLink').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('footer').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+
+        // Team Animation
+        const teamCards = document.querySelectorAll('.team-card');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 120);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        teamCards.forEach(card => observer.observe(card));
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 80) {
+                navbar.style.padding = '10px 0';
+            } else {
+                navbar.style.padding = '14px 0';
             }
         });
     </script>
