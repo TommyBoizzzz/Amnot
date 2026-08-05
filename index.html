@@ -227,6 +227,7 @@
         }
 
         /* ==================== TEAM SECTION ==================== */
+
         .team-section {
             padding: 120px 20px;
             background: #ffffff;
@@ -252,23 +253,28 @@
             animation: fadeUp 1s forwards 0.2s;
         }
 
+        /* ==================== TEAM GRID ==================== */
+
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(5, 280px);
+            justify-content: center;
             gap: 35px;
-            max-width: 1300px;
+            max-width: 1600px;
             margin: 0 auto;
         }
 
+        /* ==================== TEAM CARD ==================== */
+
         .team-card {
-            background: white;
+            background: #fff;
             border-radius: 24px;
             overflow: hidden;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             border: 1px solid #f1f5f9;
             text-align: center;
-            padding-bottom: 30px;
+            padding: 0 20px 30px;
             opacity: 0;
             transform: translateY(60px);
         }
@@ -282,6 +288,8 @@
             transform: translateY(-20px) scale(1.03);
             box-shadow: 0 30px 70px rgba(0, 102, 255, 0.18);
         }
+
+        /* ==================== TEAM IMAGE ==================== */
 
         .team-img {
             width: 160px;
@@ -302,6 +310,96 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+
+        /* ==================== MEMBER INFO ==================== */
+
+        .team-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+
+        .team-card h4 {
+            font-size: 1rem;
+            color: #2563eb;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .team-card p {
+            color: #64748b;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        /* ==================== SOCIAL ICONS ==================== */
+
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .team-social a {
+            width: 42px;
+            height: 42px;
+            background: #f8fafc;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #2563eb;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .team-social a:hover {
+            background: #2563eb;
+            color: #fff;
+            transform: translateY(-5px);
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+
+        @media (max-width: 1600px) {
+            .team-grid {
+                grid-template-columns: repeat(5, 260px);
+            }
+        }
+
+        @media (max-width: 1450px) {
+            .team-grid {
+                grid-template-columns: repeat(4, 280px);
+            }
+        }
+
+        @media (max-width: 1180px) {
+            .team-grid {
+                grid-template-columns: repeat(3, 280px);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .team-grid {
+                grid-template-columns: repeat(2, 280px);
+            }
+        }
+
+        @media (max-width: 620px) {
+            .team-grid {
+                grid-template-columns: repeat(1, 280px);
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+            }
         }
 
         /* =================== TECH =================== */
@@ -515,42 +613,53 @@
                 <div class="team-card">
                     <div class="team-img"><img src="./images/member/sela.png" alt="Heng Chansela"></div>
                     <h5 class="team-name">Heng Chansela</h5>
-                    <p class="team-role">Founder & Creative Director</p>
-                </div>
-                <div class="team-card">
-                    <div class="team-img"><img src="./images/member/nha.png" alt="Manh Puthipanha"></div>
-                    <h5 class="team-name">Manh Puthipanha</h5>
-                    <p class="team-role">Dev Ops</p>
+                    <p class="team-role">Founder / PJ Leader</p>
                 </div>
                 <div class="team-card">
                     <div class="team-img"><img src="./images/member/seth.png" alt="Rith Keoviseth"></div>
                     <h5 class="team-name">Rith Keoviseth</h5>
-                    <p class="team-role">Project Manager</p>
+                    <p class="team-role">Team Leader / PJ Manager</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-img"><img src="./images/member/nha.png" alt="Manh Puthipanha"></div>
+                    <h5 class="team-name">Manh Puthipanha</h5>
+                    <p class="team-role">Frontend Developer</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-img"><img src="./images/member/ysal.gif" alt="Touch Suvisal"></div>
+                    <h5 class="team-name">Touch Suvisal</h5>
+                    <p class="team-role">Backend Developer</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-img"><img src="./images/member/reach.png" alt="Vang Yuthreach"></div>
+                    <h5 class="team-name">Vang Yuthreach</h5>
+                    <p class="team-role">Database Designer</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-img"><img src="./images/member/vuttey.png" alt="Hak Vuttey"></div>
+                    <h5 class="team-name">Hak Vuttey</h5>
+                    <p class="team-role">System Analyst</p>
                 </div>
                 <div class="team-card">
                     <div class="team-img"><img src="./images/member/niza.png" alt="Sopheak Niza"></div>
                     <h5 class="team-name">Sopheak Niza</h5>
                     <p class="team-role">Web Developer</p>
                 </div>
+
                 <div class="team-card">
-                    <div class="team-img"><img src="./images/member/vuttey.png" alt="Hak Vuttey"></div>
-                    <h5 class="team-name">Hak Vuttey</h5>
-                    <p class="team-role">Web Developer</p>
-                </div>
-                <div class="team-card">
-                    <div class="team-img"><img src="./images/member/sal.png" alt="Touch Suvisal"></div>
-                    <h5 class="team-name">Touch Suvisal</h5>
-                    <p class="team-role">Mobile Developer</p>
-                </div>
-                <div class="team-card">
-                    <div class="team-img"><img src="./images/member/reach.png" alt="Vang Yuthreach"></div>
-                    <h5 class="team-name">Vang Yuthreach</h5>
-                    <p class="team-role">Mobile Developer</p>
+                    <div class="team-img"><img src="./images/member/yenat.gif" alt="Sokny Enat"></div>
+                    <h5 class="team-name">Sokny Enat</h5>
+                    <p class="team-role">Dev Ops</p>
                 </div>
                 <div class="team-card">
                     <div class="team-img"><img src="./images/member/naro.png" alt="Yous Soknaro"></div>
                     <h5 class="team-name">Yous Soknaro</h5>
                     <p class="team-role">UI/UX Designer</p>
+                </div>                
+                <div class="team-card">
+                    <div class="team-img"><img src="./images/member/ysoon.gif" alt="Soon"></div>
+                    <h5 class="team-name">COMING SOON</h5>
+                    <p class="team-role">..........</p>
                 </div>
             </div>
         </div>
