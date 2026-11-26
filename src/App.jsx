@@ -3,17 +3,19 @@ import selaPhoto from './assets/member/sela.png'
 import sethPhoto from './assets/member/seth.png'
 import nhaPhoto from './assets/member/nha.png'
 import salPhoto from './assets/member/sal.png'
-import reachPhoto from './assets/member/reach.png'
 import nizaPhoto from './assets/member/niza.png'
 import enatPhoto from './assets/member/enat.gif'
+import reachPhoto from './assets/member/reach.png'
 import naroPhoto from './assets/member/naro.png'
+import vutteyPhoto from './assets/member/vuttey.png'
 import './App.css'
 
 const members = [
+  [vutteyPhoto, 'Hak Vuttey', 'System Analyst', 'Analyzes system flows and project logic to ensure clear, reliable solutions.'],
+  [enatPhoto, 'Sokny Enat', 'DevOps', 'Supports deployment workflows and the systems behind releases.'],
   [nhaPhoto, 'Manh Puthipanha', 'Frontend Developer', 'Builds the screens and interactions people use every day.'],
   [sethPhoto, 'Rith Keoviseth', 'Backend Developer', 'Works on server-side features and application logic.'],
   [reachPhoto, 'Vang Yuthreach', 'Database Designer', 'Organizes data structures for reliable storage and access.'],
-  [enatPhoto, 'Sokny Enat', 'DevOps', 'Supports deployment workflows and the systems behind releases.'],
   [naroPhoto, 'Yous Soknaro', 'UI/UX Designer', 'Shapes clear, accessible experiences around user needs.'],
 ]
 
@@ -154,7 +156,7 @@ function App() {
                   <ImageWithFallback src={sethPhoto} alt="Rith Keoviseth" />
                   <ImageWithFallback src={nhaPhoto} alt="Manh Puthipanha" />
                 </div>
-                <div><strong>8 minds</strong><span>One vision</span></div>
+                <div><strong>9 minds</strong><span>One vision</span></div>
               </div>
             </div>
           </div>

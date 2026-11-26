@@ -783,7 +783,7 @@
 
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 12px;
 }
 
@@ -1210,7 +1210,7 @@
   .leader-image { height: 280px; }
   .leader-info { display: block; }
   .leader-info h3 { margin-top: 6px; text-align: left; }
-  .team-grid { grid-template-columns: repeat(2, 1fr); }
+  .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
   .filters { overflow-x: auto; }
   .filter { flex: 0 0 auto; }
   .tech-grid { grid-template-columns: repeat(2, 1fr); }
