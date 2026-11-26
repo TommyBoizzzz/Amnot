@@ -1211,9 +1211,14 @@
   .leader-info { display: block; }
   .leader-info h3 { margin-top: 6px; text-align: left; }
   .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-  .filters { overflow-x: auto; }
+  .filters {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+  }
   .filter { flex: 0 0 auto; }
-  .tech-grid { grid-template-columns: repeat(2, 1fr); }
+  .tech-grid { grid-template-columns: 1fr; }
   .footer-cta { align-items: flex-start; flex-direction: column; padding: 25px; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
   .footer-about { grid-column: 1 / -1; }
